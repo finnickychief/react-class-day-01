@@ -30,7 +30,7 @@
         <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Link</a>
+        <a className="nav-link" href="/about.html">Link</a>
       </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" >
@@ -54,25 +54,104 @@
   </div>
 </nav>
 )
-  const Post = props => (
-    <div className={props.className}>
-      <h2>{props.title}</h2>
-      <p>{props.body}</p>
+  // const Post = props => (
+  //   <div className={props.className}>
+  //     <h2>{props.title}</h2>
+  //     <p>{props.body}</p>
+  //   </div>
+  // )
+
+    const Post = ({className, title: ourTitle, body}) => (
+    <div className={className}>
+      <h2>{ourTitle}</h2>
+      <p>{body}</p>
     </div>
   )
+  </script>
+
+
+<script type="text/babel">
+
+  const postAry = [
+    { className: 'class1', body: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis magnam asperiores quisquam. Eos molestias dolorum tempora aliquid porro sunt autem fuga illo voluptas, nemo eum!', title: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, repellat?'},
+    { className: 'class1', body: 'Minima sint laudantium similique quis, perferendis cum. Nam facere nisi eveniet dolore voluptas pariatur ducimus necessitatibus mollitia accusantium itaque? Rerum doloremque temporibus quos tempore mollitia.', title: 'Harum deserunt hic quaerat consequatur unde architecto, mollitia illum vitae?'},
+    { className: 'class1', body: ' Voluptatibus suscipit enim et minima non aperiam inventore quia possimus architecto nam, accusamus rerum aut animi eaque cupiditate dolorum repellat vero mollitia eum pariatur tempore!', title: 'Delectus ad natus facere sint in error explicabo ratione. Quasi.'},
+    { className: 'class1', body: ' Voluptates ipsa accusantium aliquid quis quam, suscipit perspiciatis omnis officiis assumenda nisi voluptate ipsam, dolorem eius laborum minima vero, rem ratione architecto vitae totam labore?', title: 'Quaerat magni molestiae provident dignissimos expedita voluptas, modi id beatae!'},
+    { className: 'class1', body: 'Pariatur veniam dignissimos debitis maxime ducimus, doloribus porro velit in hic nihil sed labore suscipit esse ea saepe impedit vel dolores optio aperiam provident minus.', title: 'Possimus maxime suscipit rem maiores totam, quaerat expedita facere ipsam.'}
+    ];
+
+    let displayPosts = postAry.map((post,index) => <Post key={index} {...post} />)
+
 
   const App = props => (
     <div className="container">
       <Navbar/>
-      <Post className="" title="Lorem ipsum dolor sit amet." body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, provident delectus? Deleniti quam eum sequi quos, perferendis dolorum? Eum, suscipit." />
-      <Post className="" title="Lorem ipsum dolor sit amet." body="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, culpa nam excepturi explicabo sed quidem." />
+      <div>{displayPosts}</div>
     </div>
 
   )
 
- 
-
-
 ReactDOM.render(<App/>, rootElement);
+
+
+
+/*
+
+    React:
+      A library, focused on the view component of an application.
+      Useful for building user interfaces that are "reactive", meaning they update very efficiently when users interact with them
+
+    Why use react?
+      The community support for it is much greater than the other large frameworks such as Vue and Angular
+      Particularly with Angular: Google is the owner of Angular, but they don't have many of their projects using it. React on the other hand, is owned by Facebook, and virtually everything they develop is now through React.
+
+
+    Qualities of react:
+      Plug & play - Meaning you can use it as much or as little as you like
+      Composable components - Reusable components that are performant
+      Relatively simple to learn, there's very little that you MUST know before beginning, but there's a fairly deep well afterwards. 
+
+      Other libraries we will look at:
+        redux - A central store to provide state to all elements that connect to it
+        react-router - A way to route users to different paths within your application
+
+        Webpack/parcel - Ways to 'bundle' your application for use in production. Webpack is also needed for running your react app in the same manner that nodemon runs
+
+      Other react topics:
+        Lifecycle methods - Stages within a component where you can interact with it at some state during the rendering process.
+        componentDidMount <-- Was it mounted to the DOM properly? If yes, run whatever is inside of this function
+
+      Other topics that are easier to complete with react:
+        Lazy loading + Code Splitting
+
+
+      Patterns that are useful:
+        using arrays to map large quantities of data
+        Creating reusable components that are distinguishable from eachother, usually through using separate files for each.
+        Keeping track of user authentication without having to constantly update or pass around cookies stored in the browser.
+
+      Props vs State:
+        Props are immutable, if you need something that changes within a component(so not passed in from ANOTHER component), you'll need a class-based component with state. A functional component will only have access to props and thus cannot have its own functions or state.
+
+
+
+        
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
 
 </script>
