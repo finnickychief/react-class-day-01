@@ -1,0 +1,52 @@
+<div id="root"></div>
+
+<script>
+  // Vanilla way of rendering an element to the page.
+  // const rootElement = document.querySelector('#root');
+  // const element = document.createElement('div');
+  // element.innerHTML = 'Hello World';
+  // rootElement.appendChild(element);
+</script>
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+
+<script>
+  // React element rendering
+  // Grab the element we are going to append our application to
+  const rootElement = document.querySelector('#root');
+
+  // Create a react element
+  // React.createElement takes 2 or more parameters: 
+  //  1: the type of element to create
+  //  2: The properties(props) to give the element
+  //  3+: The children to place within the element
+
+  // className
+  // htmlFor
+
+  const helloWorld = React.createElement('h1', {
+    className: 'my-class',
+    style: { margin: '0 auto' },
+    ladida: 'hello'
+  }, 'Hello World');
+
+  const goodbyeWorld = React.createElement('p', null, 'Goodbye World');
+
+  // const element = React.createElement('div', {
+  //   className: 'container'
+  // }, helloWorld, goodbyeWorld);
+
+  const element = React.createElement('div', {
+    className: 'container',
+    children: [helloWorld, goodbyeWorld]
+  });
+
+  ReactDOM.render(element, rootElement);
+
+
+
+
+
+</script>
