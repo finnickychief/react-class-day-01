@@ -10,9 +10,10 @@
 
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
 
-<script>
+<script type="text/babel">
   // React element rendering
   // Grab the element we are going to append our application to
   const rootElement = document.querySelector('#root');
@@ -26,26 +27,88 @@
   // className
   // htmlFor
 
-  const helloWorld = React.createElement('h1', {
-    className: 'my-class',
-    style: { margin: '0 auto' },
-    ladida: 'hello'
-  }, 'Hello World');
+  // const helloWorld = React.createElement('h1', {
+  //   className: 'my-class',
+  //   style: { margin: '0 auto' },
+  //   ladida: 'hello'
+  // }, 'Hello World');
 
-  const goodbyeWorld = React.createElement('p', null, 'Goodbye World');
+  // const goodbyeWorld = React.createElement('p', null, 'Goodbye World');
 
   // const element = React.createElement('div', {
   //   className: 'container'
   // }, helloWorld, goodbyeWorld);
 
-  const element = React.createElement('div', {
-    className: 'container',
-    children: [helloWorld, goodbyeWorld]
-  });
+  // const element = React.createElement('div', {
+  //   className: 'container',
+  //   children: [helloWorld, goodbyeWorld]
+  // });
+
+  // JSX: Javascript XML
+  // A way to write markup within our javascript. 
+
+  // const element = <div className="container" id="root2">Hello World</div>
+
+  //const content = 'Hello World';
+  //const myClassName = 'container';
+
+  // const element = <div className={myClassName}>{content}</div>
+
+  // const props = {
+  //   className: 'container',
+  //   children: 'Hello World'
+  // }
+
+  // const element = <div {...props} />
+  //const element = <div className="my-class"/> {...props} // Override default classname with props 
+  //const element = <div {...props} className="my-class" /> // Override props className with our own
+
+ // const helloWorld = <div>Hello World</div>
+
+  // const element = (
+  //   <div className="container">
+  //     {helloWorld}
+  //     {helloWorld}
+  //     {helloWorld}
+  //   </div>
+  // );
+
+    // Functional components
+    // A way to declare reusable components that act as functions, and take in properties to be used in a returned element
+    // Take in properties and use the ones provided within the className and innerHTML
+    // const content = (props) => <div className={props.className}>{props.msg}</div>
+
+  // const element = (
+  //   <div className="container">
+  //     {content({msg: 'Hello World', className: 'class1'})}
+  //     {content({msg: 'Goodbye World'})}
+  //   </div>
+  // );
+
+  //    const element = (
+  //   <div className="container">
+  //     <Content msg="Hello again"/>
+  //     {React.createElement(content, {msg: 'Hello World', className: 'class1'})}
+  //     {React.createElement(content, {msg: 'Goodbye World'})}
+  //   </div>
+  // );
+    // Babel requires your self-defined elements to start with a capital letter to run properly. It is also useful to easily pick out your own components vs normal ones in your applications.
+    const Content = (props) => <div className={props.className}>{props.msg}</div>
+
+    const element = (
+    <div className="container">
+      <Content>
+        <h1>Some text</h1>
+      </Content>
+      <Content msg="Hello World" className="class1"/>
+      <Content msg="Goodbye World" />
+    </div>
+  );
+
+
+
 
   ReactDOM.render(element, rootElement);
-
-
 
 
 

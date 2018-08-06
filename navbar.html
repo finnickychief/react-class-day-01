@@ -1,0 +1,78 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+
+<div id="root"></div>
+
+
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
+<!-- Babel ENV -->
+
+
+<script type="text/babel">
+
+  const rootElement = document.querySelector('#root');
+
+  const Navbar = (props) => (
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+   <a className="navbar-brand" href="#">Navbar</a>
+  <button className="navbar-toggler" type="button"  >
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Link</a>
+      </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" >
+          Dropdown
+        </a>
+        <div className="dropdown-menu" >
+          <a className="dropdown-item" href="#">Action</a>
+          <a className="dropdown-item" href="#">Another action</a>
+          <div className="dropdown-divider"></div>
+          <a className="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" />
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+)
+  const Post = props => (
+    <div className={props.className}>
+      <h2>{props.title}</h2>
+      <p>{props.body}</p>
+    </div>
+  )
+
+  const App = props => (
+    <div className="container">
+      <Navbar/>
+      <Post className="" title="Lorem ipsum dolor sit amet." body="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, provident delectus? Deleniti quam eum sequi quos, perferendis dolorum? Eum, suscipit." />
+      <Post className="" title="Lorem ipsum dolor sit amet." body="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, culpa nam excepturi explicabo sed quidem." />
+    </div>
+
+  )
+
+ 
+
+
+ReactDOM.render(<App/>, rootElement);
+
+</script>
