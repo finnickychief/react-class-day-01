@@ -21,9 +21,9 @@ xhr.onreadystatechange = () => {
     console.log(JSON.parse(xhr.responseText));
   }
 };
-let url = 'https://jsonplaceholder.typicode.com/users';
+let url = 'https://jsonplaceholder.typicode.com/posts';
 
-method, url, async t/f
+//method, url, async t/f
 xhr.open('get', url, true);
 xhr.send();
 
@@ -56,7 +56,7 @@ fetch(url, {
 axios
   .get(url)
   .then(response => console.log(response))
-  .catch(err => console.log(error));
+  .catch(err => console.log(err));
 
 axios
   .post(url, {

@@ -1,4 +1,41 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
 
+<div id="root"></div>
 
-<script src="httpRequests.js"></script>
+<!-- <script src="httpRequests.js"></script> -->
+<script type="text/babel">
+  const Nav = props => (
+  <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 className="my-0 mr-md-auto font-weight normal">Company name</h5>
+    <nav className="my-2 my-md-0 mr-md-3">
+      <a href="#" className="p-2 text-dark">
+        Features
+      </a>
+      <a href="#" className="p-2 text-dark">
+        Enterprise
+      </a>
+      <a href="#" className="p-2 text-dark">
+        Support
+      </a>
+      <a href="#" className="p-2 text-dark">
+        Pricing
+      </a>
+    </nav>
+    <a href="#" className="btn btn-outline-primary">
+      Sign up
+    </a>
+  </div>
+);
+
+const Page = props => (<div><Nav /></div>);
+
+const rootElement = document.querySelector('#root');
+
+ReactDOM.render(<Page/>, rootElement);
+
+</script>
